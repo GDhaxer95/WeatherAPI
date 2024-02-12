@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import axios, {AxiosResponse} from "axios";
-import { WeatherError } from "../middlewares/errorHandler";
+import { ApiError } from "../errors/ApiError";
 
 export class WeatherController {
   private API_KEY: string;
@@ -21,7 +21,7 @@ export class WeatherController {
     }
     catch (error) {
         console.log('error : ', error);
-        next(new WeatherError("Error while fetching weather data"));
+        
     }
 
   }
